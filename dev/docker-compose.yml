@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+    postgres:
+        container_name: imdb_db2
+        image: postgres:alpine
+        environment:
+            POSTGRES_PASSWORD: 1234
+            POSTGRES_DB: imdb
+        ports:
+            - 5532:5432
