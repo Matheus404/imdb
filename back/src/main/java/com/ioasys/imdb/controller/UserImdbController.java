@@ -48,8 +48,13 @@ public class UserImdbController {
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
-		userImdbService.deleteUserImdb(id);
-		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+		try {
+			userImdbService.deleteUserImdb(id);
+			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
 	}
 	
 	

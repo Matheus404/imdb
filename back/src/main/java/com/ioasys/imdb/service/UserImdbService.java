@@ -35,8 +35,10 @@ public class UserImdbService {
 	}
 	
 	public UsuarioImdb updateUserImdb(Long id, UsuarioImdb userImdb) {
-		UsuarioImdb userAux = findById(id);
-		return userImdbRepository.save(userAux);
-		
+		UsuarioImdb userOpt = findById(id);
+		userOpt.setLogin(userImdb.getLogin());
+		userOpt.setPassword(userImdb.getPassword());
+		userOpt.setPapeis(userImdb.getPapeis());
+		return userImdbRepository.save(userOpt);
 	}
 }
